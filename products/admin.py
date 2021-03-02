@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Dish, DishCategory, Drink, DrinkCategory
+from .models import Category, SubCategory, Product
 
-admin.site.register(Dish)
-admin.site.register(DishCategory)
-admin.site.register(Drink)
-admin.site.register(DrinkCategory)
+
+admin.site.register(Category)
+admin.site.register(SubCategory)
+admin.site.register(Product)
