@@ -11,15 +11,19 @@
 <div class='container-fluid'>
     <div class='row'>
         <div class='col-6'>
-            <p><a class="h4 link-dark" href="{% url "list_dishes" %}">{% trans 'Dishes' %}</a></p>
-            {% for cat  in dish_cat %}
-                <p><a href="{% url 'prod_by_cat' model='dishes' cat=cat.pk %}">{{cat.name}}</a></p>
+            <p><a class="h4 link-dark" href="{% url "prod_by_cat" cat=1 %}">{% trans 'Dishes' %}</a></p>
+            {% for subcategory in subcategories %}
+                {% if subcategory.category.pk == 1 %}
+                <p><a href="{% url "prod_by_subcat" cat=1 subcat=subcategory.pk %}">{{subcategory.name}}</a></p>
+                {% endif %}
             {% endfor %}
         </div>
       <div class='col-6'>
-            <p><a class="h4 link-dark" href="{% url "list_drinks" %}">{% trans 'Drinks' %}</a></p>
-            {% for cat  in drink_cat %}
-                <p><a href="{% url 'prod_by_cat' model='drinks' cat=cat.pk %}">{{cat.name}}</a></p>
+            <p><a class="h4 link-dark" href="{% url "prod_by_cat" cat=2 %}">{% trans 'Drinks' %}</a></p>
+            {% for subcategory in subcategories %}
+                {% if subcategory.category.pk == 2 %}
+                <p><a href="{% url "prod_by_subcat" cat=2 subcat=subcategory.pk %}">{{subcategory.name}}</a></p>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

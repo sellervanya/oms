@@ -1,0 +1,13 @@
+ {% load i18n %}
+ <div class="col-2 text-center">
+        <div class='bg-info leftslide'>
+         <a class="h4 link-dark" href="{% url "products" %}">Навигация</a>
+        </div>
+        <div class='bg-info leftslide'>
+         <hr>
+         <p><a class="link-dark" href="{% url "products" %}">Главная</a></p>
+         <p><a class="link-dark" href="{% url "prod_by_cat" cat=1 %}">{% trans 'Dishes' %}</a></p>
+         <p><a class="link-dark" href="{% url "prod_by_cat" cat=2 %}">{% trans 'Drinks' %}</a></p>
+        </div>
+        </div>
+        <div class="col-8 text-center ">

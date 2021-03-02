@@ -35,12 +35,8 @@ class SubCategory(models.Model):
         )
 
     category = models.ForeignKey(
-        Category, verbose_name=_('Category'),
-        on_delelte=models.SET_NULL, null=True
-        )
-
-    alcohol = models.IntegerField(
-        verbose_name=_('Alcohol percent'), default=False
+        Category, on_delete=models.SET_NULL,
+        null=True, verbose_name=_('Category')
         )
 
     def __str__(self):
@@ -64,6 +60,11 @@ class Product(models.Model):
     measurement = models.CharField(choices=UNIT_OF_MEAUSEREMENT, max_length=25)
     calories = models.IntegerField(_('Calories'))
     image = models.ImageField(_('Image'), default='None.jpg')
+
+    def get_category(self):
+        return self.subcategory.category.name
+
+    get_category.short_description = _('Category')
 
     def get_absolute_url(self):
         return reverse("product", kwargs={"pk": self.pk})

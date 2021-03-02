@@ -31,16 +31,7 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-2 text-center">
-         <a class="h4 link-dark" href="{% url "products" %}">Навигация</a>
-        <div class='bg-info leftslide'>
-         <hr>
-         <p><a class="link-dark" href="{% url "products" %}">Главная</a></p>
-         <p><a class="link-dark" href="{% url "list_drinks" %}">Напитки</a></p>
-         <p><a class="link-dark" href="{% url "list_dishes" %}">Блюда</a></p>
-        </div>
-        </div>
-        <div class="col-8 text-center ">
+          {% include 'inc/_leftsidebar.html'%}
           {% block content %}
           {% endblock %}
         </div>

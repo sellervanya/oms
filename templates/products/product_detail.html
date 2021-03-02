@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title%}
+{{product.category.name}} - {{product.name}}
+{% endblock %}
+{% block pageheader %}
+<h1 class="text-center"> {{product.category.name}} </h1>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card h-auto">
+        <p class="card-header h2">{{product.name}}</p>
+        <img src="{{product.image.url}}" class="card-img-top" alt="{{product.image}}">
+        <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">Объем: <small class="text-muted">{{product.volume}} {{product.measurement}}</small></p>
+        <p class="card-text">Калорий: <small class="text-muted">{{product.calories}} КК</small></p>
+        <p class="card-subtitle">Описание:</p>
+        <p class="card-text">{{product.description}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

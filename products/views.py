@@ -1,47 +1,29 @@
 from django.views.generic import DetailView, ListView
 
-from .models import Drink, Dish, DrinkCategory, DishCategory
+from .models import Product, SubCategory
 
 
-class ProductsView(ListView):
-    model = DishCategory
+class SubCategoryView(ListView):
+    '''Model description view for index page'''
+    model = SubCategory
     template_name = 'index.html'
-    context_object_name = 'dish_cat'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['drink_cat'] = DrinkCategory.objects.all()
-        return context
+    context_object_name = 'subcategories'
 
 
-class DetailDrinkView(DetailView):
-    model = Drink
+class ProductDetailView(DetailView):
+    '''Model description detail view product'''
+    model = Product
 
 
-class DetailDishView(DetailView):
-    model = Dish
-
-
-class ListViewDrinks(ListView):
-    model = Drink
+class ListProductByCategory(ListView):
     paginate_by = 4
-
-
-class ListViewDishes(ListView):
-    model = Dish
-    paginate_by = 4
-
-
-class ListByCategory(ListView):
-    paginate_by = 4
-
-    models_dict = {
-        'drinks': Drink,
-        'dishes': Dish
-    }
+    model = Product
 
     def get_queryset(self):
-        kwargs_model = self.kwargs['model']
-        model = self.models_dict[kwargs_model]
-        cat = self.kwargs['cat']
-        return model.objects.filter(category__pk=cat)
+        model = self.model
+        category = self.kwargs['cat']
+        result = model.objects.filter(subcategory__category__pk=category)
+        if 'subcat' in self.kwargs.keys():
+            subcategory = self.kwargs['subcat']
+            return result.filter(subcategory__pk=subcategory)
+        return result
