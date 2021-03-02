@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title%}
+{% trans "drink list"%}
+{% endblock %}
+{% block pageheader %}
+<h1 class="text-center pb-3"> {% trans "drink list"%}</h1>
+{% endblock %}
+{% block content %}
+<div class="container-fluid text-center">
+   <p><a class="h4 link-dark" href="{% url "list_drinks" %}">{% trans "drinks" %}</a></p>
+   <div class="row">
+      <div class="card-group">
+         {% for drink  in object_list %}
+         <div class="col-3">
+            <div class="card">
+               {% if drink.image %}
+               <img src="{{drink.image.url}}" class="card-img-top">
+               {% endif %}
+               <div class="card-body">
+                  <hr>
+                    <h5 class="card-title">
+                        <a href="{% url 'view_detail_drink' pk=drink.pk %}">{{drink.name}}</a>
+                    </h5>
+                  <p class="card-text">{{drink.description}}</p>
+                  <p class="card-text"><small class="text-muted">
+                    {% if drink.alcohol %}
+                    Алкогольный напиток
+                    {% else %}
+                    Безалкогольный напиток
+                    {% endif %}
+                    </small></p>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+   <div class="pagination">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; {% trans "first" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
+        {% endif %}
+      <span class="current">
+        {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
+      </span>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
+      {% endif %}
+      </span>
+   </div>
+</div>
+{% endblock %}

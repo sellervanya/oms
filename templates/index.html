@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title%}
+Главная страница
+{% endblock %}
+{% block pageheader %}
+<h1 class="text-center pb-3"> {% trans "Main page"%} - ресторан кушайсам</h1>
+{% endblock %}
+{% block content %}
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-6'>
+            <p><a class="h4 link-dark" href="{% url "list_dishes" %}">{% trans 'Dishes' %}</a></p>
+            {% for cat  in dish_cat %}
+                <p><a href="{% url 'prod_by_cat' model='dishes' cat=cat.pk %}">{{cat.name}}</a></p>
+            {% endfor %}
+        </div>
+      <div class='col-6'>
+            <p><a class="h4 link-dark" href="{% url "list_drinks" %}">{% trans 'Drinks' %}</a></p>
+            {% for cat  in drink_cat %}
+                <p><a href="{% url 'prod_by_cat' model='drinks' cat=cat.pk %}">{{cat.name}}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

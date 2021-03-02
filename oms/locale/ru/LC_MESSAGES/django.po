@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-28 14:06+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\products\apps.py:7
+msgid "Products"
+msgstr "Продукты"
+
+#: .\products\models.py:6
+msgid "killogramm"
+msgstr "кг."
+
+#: .\products\models.py:7
+msgid "gramm"
+msgstr "гр."
+
+#: .\products\models.py:8
+msgid "mill"
+msgstr "мл."
+
+#: .\products\models.py:9
+msgid "liter"
+msgstr "л."
+
+#: .\products\models.py:16 .\products\models.py:31 .\products\models.py:46
+#: .\products\models.py:69
+msgid "Name"
+msgstr "Наименование"
+
+#: .\products\models.py:24
+msgid "DrinkCategory"
+msgstr "Категория напитка"
+
+#: .\products\models.py:25
+msgid "DrinkCategorys"
+msgstr "Категории напитка"
+
+#: .\products\models.py:39
+msgid "DishCategory"
+msgstr "Категория блюда"
+
+#: .\products\models.py:40
+msgid "DishCategorys"
+msgstr "Категории блюда"
+
+#: .\products\models.py:50 .\products\models.py:73
+msgid "Description"
+msgstr "Описание"
+
+#: .\products\models.py:52 .\products\models.py:78
+msgid "Volume"
+msgstr "Объем"
+
+#: .\products\models.py:54 .\products\models.py:80
+msgid "Calories"
+msgstr "Калории"
+
+#: .\products\models.py:55 .\products\models.py:81
+msgid "Image"
+msgstr ""
+
+#: .\products\models.py:56
+msgid "isAlcohol"
+msgstr "Алкогольный"
+
+#: .\products\models.py:62
+msgid "Drink"
+msgstr "Напиток"
+
+#: .\products\models.py:63
+msgid "Drinks"
+msgstr "Напитки"
+
+#: .\products\models.py:87
+msgid "Dish"
+msgstr "Блюдо"
+
+#: .\products\models.py:88
+msgid "Dishes"
+msgstr "Блюда"
+
+#: .\tables\apps.py:7
+msgid "OrdersTable"
+msgstr "Столы заказов"
+
+#: .\tables\models.py:10
+msgid "TableNumber"
+msgstr "Номер стола"
+
+#: .\tables\models.py:15
+msgid "UserRecordForTable"
+msgstr "Запись пользователя для стола"
+
+#: .\tables\models.py:22
+msgid "Table"
+msgstr "Стол"
+
+#: .\tables\models.py:23
+msgid "Tables"
+msgstr "Столы"
+
+#: .\templates\index.html:8
+msgid "Main page"
+msgstr "Главная страница"
+
+#: .\oms\settings.py:123
+msgid "English"
+msgstr "Английский"
+
+#: .\oms\settings.py:124
+msgid "Russian"
+msgstr "Русский"
+
+#~ msgid "Weight"
+#~ msgstr "Масса"
