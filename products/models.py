@@ -13,6 +13,7 @@ UNIT_OF_MEAUSEREMENT = (
 
 class Category(models.Model):
     '''Model description of the category products.'''
+
     name = models.CharField(
         _('Name'), max_length=55,
         unique=True, blank=False
@@ -49,17 +50,19 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     '''Model description of the alco/noalco drink.'''
+
     name = models.CharField(
         _('Name'), max_length=55,
         unique=True, blank=False
         )
 
-    description = models.CharField(_('Description'), max_length=500)
+    description = models.TextField(_('Description'), max_length=500)
     subcategory = models.ForeignKey(SubCategory, models.SET_NULL, null=True)
     volume = models.IntegerField(_('Volume'))
     measurement = models.CharField(choices=UNIT_OF_MEAUSEREMENT, max_length=25)
     calories = models.IntegerField(_('Calories'))
     image = models.ImageField(_('Image'), default='None.jpg')
+    price = models.IntegerField(_('Price'))
 
     def get_category(self):
         return self.subcategory.category.name
@@ -75,3 +78,4 @@ class Product(models.Model):
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
+        ordering = ['-id', ]
